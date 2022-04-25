@@ -22,10 +22,28 @@ def getFrequency(text):
     print(printOutMsg)
     userAction = int(input())
     if actUser == 1:
-        encDecryptMessage()
+        encdecrMessage()
         return
     if actUser == 2:
         quit()
     else:
         print("invalid option selected, quiting program")
         return
+
+
+def encdecrMessage(text):
+    key = {}
+    newStr = ''
+    print('Enter new rule-> ')
+    newRule = input()
+    newRule = newRule.lower().split(',')
+
+    for val in newRule:
+        key[val[0]] = val[2]
+    print(key)
+    for ab in text:
+        if ab in key:
+            newStr += key.get(ab)
+        else:
+            newStr += ab
+    print(newStr)
